@@ -1,0 +1,7 @@
+{
+  "name": "img2char",
+  "version": "1.0.0",
+  "description": "convert an image to char image",
+  "main": "main.js",
+  "license": "MIT"
+}
