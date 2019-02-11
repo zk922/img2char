@@ -1,7 +1,24 @@
 {
   "name": "img2char",
   "version": "1.0.0",
-  "description": "convert an image to char image",
+  "description": "convert images to char images",
   "main": "main.js",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "serve": "./node_modules/.bin/ts-node ./test/test-server.ts"
+  },
+  "dependencies": {
+    "big.js": "^5.2.2",
+    "images": "^3.0.2"
+  },
+  "devDependencies": {
+    "@types/koa": "^2.0.48",
+    "@types/koa-bodyparser": "^4.2.1",
+    "@types/koa-router": "^7.0.39",
+    "koa": "^2.7.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "^7.4.0",
+    "ts-node": "^8.0.2",
+    "typescript": "^3.3.3"
+  }
 }
