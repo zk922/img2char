@@ -81,3 +81,4 @@ async function img2char(path, charConfig = {}): Promise<string | Buffer> {  //pa
 /**=========================================  三个主函数end ================================================**/
 
 export default img2char;
+
