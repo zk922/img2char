@@ -42,7 +42,21 @@ async function oneFrameImg(image: Jimp, config): Promise<Buffer | string> {
     //3.1 仅在指明输出类型为'img'时候输出图片
     let output = await createOutputImage(width, height, config);
 
-    return '1';
+    let font = await Jimp.loadFont(Jimp.FONT_SANS_12_BLACK);
+
+    for(let j = 0; j < n; j++){
+      for(let i = 0; i < m; i++){
+        let index = image.getPixelIndex(i, j);
+        let char = config.greyScaleTable.charAt(Math.ceil(imageData[index]/255*config.greyScaleTable.length));
+        output.print(font, i*config.fontPlaceHoldWidth, j*config.fontPlaceHoldHeight ,{
+          text: char,
+          alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER,
+          alignmentY: Jimp.VERTICAL_ALIGN_MIDDLE
+        }, config.fontPlaceHoldWidth, config.fontPlaceHoldHeight);
+      }
+    }
+
+    return output.getBufferAsync(Jimp.MIME_PNG);
   }
   else{
     //3.2 输出纯字符
@@ -57,6 +71,17 @@ async function oneFrameImg(image: Jimp, config): Promise<Buffer | string> {
     return str;
   }
 }
+
+/**
+ * 2. 处理gif
+ * gif使用omggif处理
+ * @param {Jimp}image
+ * @param {?}config
+ * **/
+function animatedGif(image: Jimp, config){
+
+}
+
 /**
  * 导出的主函数
  * **/
@@ -71,7 +96,7 @@ async function img2char(path, charConfig = {}): Promise<string | Buffer> {  //pa
   //2. gif使用omggif进行解析，因为Jimp不支持动画gif
   else if(mime.match(/gif/)){
 
-    return null;
+    return '暂不支持gif';
   }
   //3. 其他图片类型暂不支持
   else{
@@ -81,3 +106,4 @@ async function img2char(path, charConfig = {}): Promise<string | Buffer> {  //pa
 /**=========================================  三个主函数end ================================================**/
 
 export default img2char;
+
