@@ -64,7 +64,7 @@ async function oneFrameImg(image: Jimp, config): Promise<Buffer | string> {
     for(let j = 0; j < n; j++){
       for(let i = 0; i < m; i++){
         let index = image.getPixelIndex(i, j);
-        str += config.greyScaleTable.charAt(Math.ceil(imageData[index]/255*config.greyScaleTable.length));
+        str += config.greyScaleTable.charAt(Math.ceil(imageData[index]/255*config.greyScaleTable.length) - 1);
       }
       j !== n-1 && (str += '\n');
     }
