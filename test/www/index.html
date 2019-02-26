@@ -5,8 +5,10 @@
   <title>img2char test</title>
 </head>
 <body>
-<form action="/convert" method="post" target="_blank">
+<form action="/convert" method="post" target="_blank" enctype="multipart/form-data">
   ** 暂不支持gif **
+  <br>
+  <br>
   <label for="imgInput">上传图片：</label><input type="file" id="imgInput" name="img"/>
   <br>
   <br>
@@ -23,7 +25,6 @@
       e.preventDefault();
       return false;
     }
-    btn.submit();
   })
 </script>
 </body>
