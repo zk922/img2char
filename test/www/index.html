@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+  <meta charset="UTF-8">
+  <title>img2char test</title>
+</head>
+<body>
+<form action="/convert" method="post" target="_blank">
+  <label for="imgInput">上传图片：</label><input type="file" id="imgInput" name="img"/>
+  <br>
+  <br>
+  <label>输出格式：</label><input type="radio" name="outputMode" value="char" checked/>字符  <input type="radio" name="outputMode" value="img"/>图片
+  <br>
+  <br>
+  <input type="submit" value="提交" id="btn"/>
+</form>
+<script>
+  let btn = document.getElementById('btn');
+  btn.addEventListener('click', function (e) {
+    if(!document.getElementById('imgInput').value){
+      alert('请选择图片');
+      e.preventDefault();
+      return false;
+    }
+    btn.submit();
+  })
+</script>
+</body>
+</html>
