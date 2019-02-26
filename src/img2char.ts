@@ -57,6 +57,17 @@ async function oneFrameImg(image: Jimp, config): Promise<Buffer | string> {
     return str;
   }
 }
+
+/**
+ * 2. 处理gif
+ * gif使用omggif处理
+ * @param {Jimp}image
+ * @param {?}config
+ * **/
+function animatedGif(image: Jimp, config){
+
+}
+
 /**
  * 导出的主函数
  * **/
