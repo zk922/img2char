@@ -20,10 +20,10 @@ router.post('/convert', async function (ctx, next) {
   let params = ctx.request.body;
   // ctx.response.set('content-type', 'application/json');
   if(params.outputMode === 'char'){
-    ctx.response.set('content-type', 'text/plain');
+    ctx.response.set('content-type', 'text/plain; charset=utf-8');
   }
   else if(params.outputMode === 'img'){
-    ctx.response.set('content-type', 'image/png');
+    ctx.response.set('content-type', 'image/png; charset=utf-8');
   }
   ctx.body = await image2char(params.img, {outputMode: params.outputMode});
   ctx.status = 200;
