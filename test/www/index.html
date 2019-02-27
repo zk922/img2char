@@ -15,6 +15,16 @@
   <label>输出格式：</label><input type="radio" name="outputMode" value="char" checked/>字符  <input type="radio" name="outputMode" value="img"/>图片
   <br>
   <br>
+  每个字符对应原图片上区域的宽高像素。
+  输出字符时候，因为字符高度一般会是宽度两倍，所以高度一般设置为宽度两倍。越小输出的字符越多。
+  <br>
+  <label>每个字符宽度</label><input type="number" value="12" name="fontPlaceHoldWidth"/>
+  <br>
+  <label>每个字符高度度</label><input type="number" value="24" name="fontPlaceHoldHeight"/>
+  <br>
+  <label>字号（目前固定）：</label>12
+  <br>
+  <br>
   <input type="submit" value="提交" id="btn"/>
 </form>
 <script>

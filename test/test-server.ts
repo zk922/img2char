@@ -23,13 +23,18 @@ router.post('/convert', async function (ctx, next) {
 
   let params = ctx.request.body;
   let files = ctx.request.files;
+  console.log(params);
   if(params.outputMode === 'char'){
     ctx.response.set('content-type', 'text/plain; charset=utf-8');
   }
   else if(params.outputMode === 'img'){
     ctx.response.set('content-type', 'image/png; charset=utf-8');
   }
-  ctx.body = await image2char(files.img.path, {outputMode: params.outputMode});
+  ctx.body = await image2char(files.img.path, {
+    outputMode: params.outputMode,
+    fontPlaceHoldWidth: +params.fontPlaceHoldWidth,
+    fontPlaceHoldHeight: +params.fontPlaceHoldHeight
+  });
   // ctx.body = JSON.stringify(img)
   fs.unlinkSync(files.img.path);
   ctx.status = 200;
