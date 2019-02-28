@@ -1,6 +1,7 @@
 import * as Jimp from "jimp";
 import * as p from "path";
 import defaultConfig from "./defaultconfig";
+import {GifWriter, GifReader} from "omggif";
 import {promises} from "fs";
 
 /**=========================================  通用工具函数 ================================================**/
@@ -80,6 +81,7 @@ async function oneFrameImg(image: Jimp, config): Promise<Buffer | string> {
  * **/
 function animatedGif(image: Jimp, config){
 
+  return '1';
 }
 
 /**
@@ -95,8 +97,7 @@ async function img2char(path, charConfig = {}): Promise<string | Buffer> {  //pa
   }
   //2. gif使用omggif进行解析，因为Jimp不支持动画gif
   else if(mime.match(/gif/)){
-
-    return '暂不支持gif';
+    return animatedGif(image, config);
   }
   //3. 其他图片类型暂不支持
   else{
